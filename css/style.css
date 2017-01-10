@@ -47,7 +47,7 @@ ul, li, ol {
     list-style: none;
 }
 
-button {
+button, input {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -405,17 +405,79 @@ button {
 }
 
 /* person */
-.container-user {
+.wrapper-user{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #dddddd;
+    z-index: -5;
 }
-
+.container-user {
+    padding-top: 10px;
+}
+.user-title {
+    margin-left: 10px;
+}
+.user-title a {
+    vertical-align: middle;
+}
+.user-title i {
+    font-size: 26px;
+    padding-right: 5px;
+    margin-top: -3px;
+    vertical-align: middle;
+}
 .header-bg {
     position: absolute;
     top: 0;
     left: 0;
     height: 200px;
     width: 100%;
-    background: #318fce;
-    background: -webkit-linear-gradient(top left, #318fce 0%, #48e7ef 100%);
-    background: linear-gradient(to bottom right, #318fce 0%, #48e7ef 100%);
+    background: url("../img/header-bg.jpg") center no-repeat;
     z-index: -5;
+}
+
+.user-header {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.user-header div {
+    display: inline-block;
+}
+.user-avatar {
+}
+.user-avatar img {
+    border-radius: 80px;
+    overflow: hidden;
+}
+.user-nickname {
+    font-size: 18px;
+}
+.mid-title {
+    height:30px;
+    background: #dddddd;
+    color: #666;
+    font-size: 14px;
+    line-height: 30px;
+    padding-left: 10px;
+}
+.user-info {
+    color: #666;
+    font-size: 14px;
+    background: #fff;
+}
+.user-info li {
+    padding: 10px 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-info input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    font-size: 14px;
 }
