@@ -14,7 +14,7 @@
 
         </div>
         <div class="user-title">
-            <a href="main.html"><i class="fa fa-angle-left" aria-hidden="true"></i>返回首页</a>
+            <a href="main.php"><i class="fa fa-angle-left" aria-hidden="true"></i>返回首页</a>
         </div>
         <div class="user-header">
             <div class="user-avatar">

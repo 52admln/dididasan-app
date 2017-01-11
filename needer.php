@@ -11,7 +11,8 @@
 <div class="wrapper-main">
     <div class="container">
         <div class="user">
-            <a href="person.html"><i class="fa fa-user-o" aria-hidden="true"></i>个人中心</a>
+            <a href="person.php"><i class="fa fa-user-o" aria-hidden="true"></i>个人中心</a>
+            <a href="main.php" class="type-change">切换身份</a>
         </div>
         <div class="content">
             <h3>您好,您现在要去哪里?</h3>

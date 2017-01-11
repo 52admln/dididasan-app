@@ -11,7 +11,8 @@
 <div class="wrapper-main">
     <div class="container">
         <div class="user">
-            <a href="person.html"><i class="fa fa-user-o" aria-hidden="true"></i>个人中心</a>
+            <a href="person.php"><i class="fa fa-user-o" aria-hidden="true"></i>个人中心</a>
+            <a href="main.php" class="type-change">切换身份</a>
         </div>
         <div class="content">
             <h3>您好,您现在要去哪里?</h3>
@@ -20,8 +21,9 @@
             </div>
         </div>
         <div class="btns">
-            <button type="button" class="btn btn-main-solid btn-solid disabled" disabled>看谁有伞</button>
+            <button type="button" class="btn btn-main-solid btn-solid disabled" disabled>看谁没伞</button>
         </div>
+
     </div>
 </div>
 <footer>

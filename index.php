@@ -15,8 +15,8 @@
                 <p>和近的人 更近一点</p>
             </div>
             <div class="btns">
-                <a href="login.html" type="button" class="btn btn-solid">登录</a>
-                <a href="regist.html" type="button" class="btn btn-opacity">注册</a>
+                <a href="login.php" type="button" class="btn btn-solid">登录</a>
+                <a href="regist.php" type="button" class="btn btn-opacity">注册</a>
             </div>
         </div>
     </div>

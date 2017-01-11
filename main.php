@@ -15,8 +15,8 @@
             <p>和近的人 更近一点</p>
         </div>
         <div class="btns">
-            <a href="needer.html" type="button" class="btn btn-solid">求帮助</a>
-            <a href="helper.html" type="button" class="btn opacity btn-opacity">伸援手</a>
+            <a href="needer.php" type="button" class="btn btn-solid">求帮助</a>
+            <a href="helper.php" type="button" class="btn opacity btn-opacity">伸援手</a>
         </div>
     </div>
 </div>
