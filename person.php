@@ -10,9 +10,7 @@
 <body>
 <div class="wrapper-user">
     <div class="container-user">
-        <div class="header-bg">
-
-        </div>
+        <div class="header-bg"></div>
         <div class="user-title">
             <a href="main.php"><i class="fa fa-angle-left" aria-hidden="true"></i>返回首页</a>
         </div>
@@ -33,10 +31,13 @@
             <li>个性签名: <input type="text" value=""></li>
             <li>常去地方: <input type="text" value=""></li>
         </ul>
+        <div class="btns">
+            <a href="logout.php" type="button" class="btn btn-solid btn-full">退出登录</a>
+        </div>
     </div>
 </div>
-<footer>
-
+<footer class="main-footer">
+    Timu蜗壳工作室
 </footer>
 </body>
 </html>

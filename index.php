@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if(isset($_SESSION['username'])) {
+    echo "<script>window.location.href = './main.php'</script>";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +29,7 @@
         </div>
     </div>
     <footer>
-
+        Timu蜗壳工作室
     </footer>
 </body>
 </html>

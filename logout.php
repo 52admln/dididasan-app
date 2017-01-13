@@ -1,17 +1,21 @@
 <?php
-session_start();
+/**
+ * Created by PhpStorm.
+ * User: Wyj
+ * Date: 1/11/17
+ * Time: 5:26 PM
+ */
 
-if(!isset($_SESSION['username'])) {
-    echo "<script>window.location.href = './index.php'</script>";
-}
+session_start();
+unset($_SESSION['username']);
+setcookie("userid", "", time()-3600);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>主页面</title>
+    <title>首页</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -19,13 +23,10 @@ if(!isset($_SESSION['username'])) {
 <body>
 <div class="wrapper">
     <div class="container">
-        <div class="logo">
-            <i class="fa fa-umbrella" aria-hidden="true"></i>
-            <p>和近的人 更近一点</p>
-        </div>
-        <div class="btns">
-            <a href="needer.php" type="button" class="btn btn-solid">求帮助</a>
-            <a href="helper.php" type="button" class="btn opacity btn-opacity">伸援手</a>
+        <div class="message">
+            <div id="messageList">
+                <div class="text">[提示] 已登出。 点击<a href="index.php" style="text-decoration: underline">返回首页</a></div>
+            </div>
         </div>
     </div>
 </div>
@@ -34,3 +35,4 @@ if(!isset($_SESSION['username'])) {
 </footer>
 </body>
 </html>
+

@@ -19,15 +19,16 @@ var vaildPassword = function (el, arg1) {
                 dataType: 'json',
                 timeout: 3000,
                 success: function(data){
-                    if(data == 0) {
+                    if(data.status == "success") {
                         var message = "注册成功!正在跳转...";
                     }
                     $("#messageList").html('<div class="text">[提示]'+message+'</div>');
+                    window.localStorage.setItem("userid", data["user_id"]);
                     window.location.href = "./main.php";
                 },
                 error: function(xhr, type){
                     $("#messageList").html('<div class="text">[错误]'+xhr.responseText+'</div>');
-                    console.log(xhr.responseText);
+                    console.error(xhr.responseText);
                 }
             });
             return false;

@@ -35,7 +35,7 @@ function login($username, $password)
         . " where username='" . $username . "' "
         . "and password=sha1('" . $password . "')";
     $result = $conn->query($query);
-//    获取用户id,放在cookie中
+//    获取用户id
     $userid = $conn->query('select user_id from users'
         . " where username='" . $username . "' ");
     if (!$result) {
@@ -45,10 +45,8 @@ function login($username, $password)
     if ($result->num_rows) {
         $_SESSION['username'] = $username;
         $row = $userid->fetch_assoc();
-//    获取用户id,放在cookie中
-        setcookie("userid", $row["user_id"]);
         $conn->close();
-        echo 0;
+        echo '{"status":"success","user_id":"'.$row['user_id'].'"}';
     } else {
         echo '用户名或密码错误';
     }

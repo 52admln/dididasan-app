@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+if(!isset($_SESSION['username'])) {
+    echo "<script>window.location.href = './index.php'</script>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +17,13 @@
 </head>
 <body>
 <div class="wrapper-main">
+
     <div class="container-main">
         <div class="title">
-            <a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+            <a href="#" id="goBack"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
             <h3>身边有伞的好心人</h3>
         </div>
-        <ul class="list-content">
+        <ul class="list-content hidden" id="list">
             <li>
                 <div class="fl avatar">
                     <img src="http://wyj.im/images/avatar.jpg" alt="" width="50" height="50">
@@ -22,7 +31,7 @@
                 <div class="fl info">
                     <p>
                         <span class="nickname">admln52sss</span>
-                        <span class="icon-sex"><i class="fa fa-venus" aria-hidden="true"></i></span>
+                        <span class="icon-sex"><i class="fa fa-mars" aria-hidden="true"></i></span>
                         <span class="distance">距离1000米</span>
                         <span class="time">1小时前</span>
                     </p>
@@ -37,33 +46,17 @@
                     <p>求帮助</p>
                 </a>
             </li>
-            <li>
-                <div class="fl avatar">
-                    <img src="http://wyj.im/images/avatar.jpg" alt="" width="50" height="50">
-                </div>
-                <div class="fl info">
-                    <p>
-                        <span class="nickname">MR.WANG</span>
-                        <span class="icon-sex"><i class="fa fa-mars" aria-hidden="true"></i></span>
-                        <span class="distance">距离100米</span>
-                        <span class="time">1分钟前</span>
-                    </p>
-                    <p>
-                        要去:<span class="target">杭州</span>
-                    </p>
-                </div>
-                <a class="fr action" href="tel:13764567708">
-                    <div class="icon-action">
-                        <i class="fa fa-umbrella" aria-hidden="true"></i>
-                    </div>
-                    <p>求帮助</p>
-                </a>
-            </li>
         </ul>
+        <div class="no-item hidden">
+            <p>似乎还没有人哦...</p>
+        </div>
+        <div class="loader">加载中...</div>
     </div>
 </div>
-<footer>
-
+<footer class="main-footer">
+    Timu蜗壳工作室
 </footer>
+<script src="//cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
+<script src="js/list.js"></script>
 </body>
 </html>

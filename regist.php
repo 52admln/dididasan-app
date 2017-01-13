@@ -45,7 +45,7 @@ if(isset($_SESSION['username'])) {
     </div>
 </div>
 <footer>
-
+    Timu蜗壳工作室
 </footer>
 <script src="//cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
 <script src="libs/cxValidation/js/cxvalidation.min.js"></script>
