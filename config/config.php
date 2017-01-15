@@ -6,7 +6,4 @@
  * Time: 8:20 AM
  */
 
-$LOCALHOST = '127.0.0.1';
-$USERNAME = 'root';
-$PASSWORD =  '';
-$DATABASE = 'dididasan';
+

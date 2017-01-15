@@ -177,7 +177,11 @@ button, input {
     color: #fff;
     font-weight: 300;
 }
-
+a.btn-opacity {
+    font-size: inherit;
+    height:41px;
+    line-height:21px;
+}
 .btn-main-opacity {
     color: #2eadef;
     border-color: #2eadef;
@@ -530,11 +534,11 @@ a.type-change {
 /*footer*/
 footer {
     position: absolute;
-    bottom:10px;
+    bottom:5px;
     left: 0;
     width:100%;
     text-align: center;
-    font-size: 12px;
+    font-size: 10px;
 }
 .main-footer {
     color: #999;

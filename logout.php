@@ -25,7 +25,7 @@ setcookie("userid", "", time()-3600);
     <div class="container">
         <div class="message">
             <div id="messageList">
-                <div class="text">[提示] 已登出。 点击<a href="index.php" style="text-decoration: underline">返回首页</a></div>
+                <div class="text">[提示] 已登出。 1秒后将自动跳转,如未自动跳转,请点击<a href="index.php" style="text-decoration: underline">返回首页</a></div>
             </div>
         </div>
     </div>
@@ -33,6 +33,13 @@ setcookie("userid", "", time()-3600);
 <footer>
     Timu蜗壳工作室
 </footer>
+<script>
+    window.localStorage.removeItem("usertype");
+    window.localStorage.removeItem("userid");
+    setTimeout(function (){
+        window.location.href = "./index.php";
+    },1000);
+</script>
 </body>
 </html>
 

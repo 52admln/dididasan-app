@@ -32,6 +32,7 @@ if(isset($_SESSION['username'])) {
             <input type="password" name="password" placeholder="密码" data-validation="required" data-validation-message='{"required":"密码不能为空"}'>
             <div class="btns">
                 <button type="submit" class="btn btn-solid">登录</button>
+                <a href="index.php" class="btn btn-opacity">返回首页</a>
             </div>
         </form>
     </div>
