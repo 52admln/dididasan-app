@@ -63,37 +63,51 @@ function distance(lat, lng, goalLat, goalLng) {
 var curTime = new Date().getTime(); // 获取当前的毫秒数
 var locations = null; // 获取当前经纬度
 
-function timeFomat(now, target) {
-    var date3 = now - target;
-    var leave1 = date3 % (24 * 3600 * 1000);    //计算天数后剩余的毫秒数
-    //计算相差分钟数
-    var leave2 = leave1 % (3600 * 1000);
-    //计算小时数后剩余的毫秒数
-    var minutes = Math.floor(leave2 / (60 * 1000));
-    return minutes + "分";
-}
+// function timeFomat2(target) {
+//     var date3 = new Date().getTime() - target;
+//     var leave1 = date3 % (24 * 3600 * 1000);    //计算天数后剩余的毫秒数
+//     //计算相差分钟数
+//     var leave2 = leave1 % (3600 * 1000);
+//     //计算小时数后剩余的毫秒数
+//     var minutes = Math.floor(leave2 / (60 * 1000));
+//     return minutes + "分";
+// }
 // console.log(timeFomat(curTime, 1484191835227));
-function timeFomat2(target, now) {
-    var msd = now - target;
-    alert(msd);
-    var time = parseFloat(msd) / 1000;
-    if (null != time && "" != time) {
-        if (time > 60 && time < 60 * 60) {
-            time = parseInt(time / 60.0) + "分钟" + parseInt((parseFloat(time / 60.0) -
-                    parseInt(time / 60.0)) * 60) + "秒";
-        } else if (time >= 60 * 60 && time < 60 * 60 * 24) {
-            time = parseInt(time / 3600.0) + "小时" + parseInt((parseFloat(time / 3600.0) -
-                    parseInt(time / 3600.0)) * 60) + "分钟" +
-                parseInt((parseFloat((parseFloat(time / 3600.0) - parseInt(time / 3600.0)) * 60) -
-                    parseInt((parseFloat(time / 3600.0) - parseInt(time / 3600.0)) * 60)) * 60) + "秒";
-        } else {
-            time = parseInt(time) + "秒";
-        }
-    } else {
-        time = "0 时 0 分0 秒";
-    }
-    return time;
+/**
+ * [Datestr 时间戳转字符串格式]
+ * @author 邱先生
+ * @copyright 烟火里的尘埃
+ * @version [V1.0版本]
+ * @date 2016-06-26
+ * @param  {[type]} date [传入php 时间戳]
+ */
+function dateStr(date){
+    //获取js 时间戳
+    var time=new Date().getTime();
+    //去掉 js 时间戳后三位，与php 时间戳保持一致
+    time=parseInt((time-date*1000)/1000);
 
+    //存储转换值
+    var s;
+    if(time<60*10){//十分钟内
+        return '刚刚';
+    }else if((time<60*60)&&(time>=60*10)){
+        //超过十分钟少于1小时
+        s = Math.floor(time/60);
+        return  s+"分钟前";
+    }else if((time<60*60*24)&&(time>=60*60)){
+        //超过1小时少于24小时
+        s = Math.floor(time/60/60);
+        return  s+"小时前";
+    }else if((time<60*60*24*3)&&(time>=60*60*24)){
+        //超过1天少于3天内
+        s = Math.floor(time/60/60/24);
+        return s+"天前";
+    }else{
+        //超过3天
+        var date= new Date(parseInt(date) * 1000);
+        return date.getFullYear()+"/"+(date.getMonth()+1)+"/"+date.getDate();
+    }
 }
 
 function geoFindMe() {
@@ -170,7 +184,7 @@ function renderData(source) {
                     + '<span class="nickname">' + item["username"] + '</span>'
                     + '<span class="icon-sex">' + sex_show + '</span>'
                     + '<span class="distance">' + parseInt(distance(locations.latitude, locations.longitude, target_location[0], target_location[1])) + '米</span>'
-                    + '<span class="time">' + timeFomat(curTime,item['time']) + '前</span>'
+                    + '<span class="time">' + dateStr(item['time']) + '</span>'
                     + '</p>'
                     + '<p>'
                     + '要去:<span class="target">' + item['target'] + '</span>'
@@ -212,7 +226,7 @@ function renderData(source) {
                 + '<span class="nickname">' + item["username"] + '</span>'
                 + '<span class="icon-sex">' + sex_show + '</span>'
                 + '<span class="distance">' + parseInt(distance(locations.latitude, locations.longitude, target_location[0], target_location[1])) + '米</span>'
-                + '<span class="time">' + timeFomat(curTime,item['time']) + '前</span>'
+                + '<span class="time">' + dateStr(item['time']) + '</span>'
                 + '</p>'
                 + '<p>'
                 + '要去:<span class="target">' + item['target'] + '</span>'

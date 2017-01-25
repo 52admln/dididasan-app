@@ -1,6 +1,3 @@
-/**
- * Created by Wyj on 1/11/17.
- */
 
 $("button").click(function () {
     if(cxValidation($("#loginForm"))) {

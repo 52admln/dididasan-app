@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Wyj
- * Date: 1/11/17
- * Time: 5:26 PM
- */
 
 session_start();
 unset($_SESSION['username']);

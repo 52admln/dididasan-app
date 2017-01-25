@@ -1,6 +1,3 @@
-/**
- * Created by Wyj on 1/11/17.
- */
 
 // 密码二次确认
 var vaildPassword = function (el, arg1) {

@@ -55,6 +55,9 @@ button, input {
     border: none;
     background: none;
 }
+select {
+    font-size:inherit;
+}
 
 .fl {
     float: left;
@@ -142,7 +145,7 @@ button, input {
 
 .btns {
     text-align: center;
-    padding-top: 30px;
+    padding-top: 20px;
 }
 
 .btn {
@@ -166,7 +169,11 @@ button, input {
     cursor: pointer;
     font-size: 18px;
 }
-
+a.btn-solid {
+    font-size: 18px;
+    height:41px;
+    line-height:21px;
+}
 .btn-opacity {
     border: 1px solid rgba(255, 255, 255, 0.4);
     background-color: rgba(255, 255, 255, 0.2);
