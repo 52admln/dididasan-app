@@ -1,7 +1,3 @@
-/**
- * Created by Wyj on 1/11/17.
- */
-
 $("#neederTarget").val("");
 $("#helperTarget").val("");
 
@@ -13,7 +9,7 @@ $('input[type=text]').bind('input propertychange', function () {
         $("button").attr({"disabled": "disabled"});
         $("button").addClass("disabled");
     }
-    console.log($(this).val().length + ' characters');
+    //console.log($(this).val().length + ' characters');
 });
 var locations = null;
 function geoFindMe() {

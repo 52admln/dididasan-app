@@ -60,19 +60,8 @@ function distance(lat, lng, goalLat, goalLng) {
 //     </li>
 
 
-var curTime = new Date().getTime(); // 获取当前的毫秒数
 var locations = null; // 获取当前经纬度
 
-// function timeFomat2(target) {
-//     var date3 = new Date().getTime() - target;
-//     var leave1 = date3 % (24 * 3600 * 1000);    //计算天数后剩余的毫秒数
-//     //计算相差分钟数
-//     var leave2 = leave1 % (3600 * 1000);
-//     //计算小时数后剩余的毫秒数
-//     var minutes = Math.floor(leave2 / (60 * 1000));
-//     return minutes + "分";
-// }
-// console.log(timeFomat(curTime, 1484191835227));
 /**
  * [Datestr 时间戳转字符串格式]
  * @author 邱先生
@@ -105,8 +94,8 @@ function dateStr(date){
         return s+"天前";
     }else{
         //超过3天
-        var date= new Date(parseInt(date) * 1000);
-        return date.getFullYear()+"/"+(date.getMonth()+1)+"/"+date.getDate();
+        var _date= new Date(parseInt(date) * 1000);
+        return _date.getFullYear()+"/"+(_date.getMonth()+1)+"/"+_date.getDate();
     }
 }
 

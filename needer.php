@@ -26,6 +26,7 @@ if(!isset($_SESSION['username'])) {
             <h3>您好,您现在要去哪里?</h3>
             <div class="input-place">
                     <input type="text" id="neederTarget" placeholder="请输入目的地">
+
             </div>
         </div>
         <div class="btns">

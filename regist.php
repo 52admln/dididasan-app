@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+//echo session_id();
 //unset($_SESSION['views']);
 //echo $_SESSION['username'];
 // 用户登录后自动跳转
