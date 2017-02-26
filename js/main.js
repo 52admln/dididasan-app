@@ -42,7 +42,7 @@ $("#neederBtn").click(function () {
         } else {
             $.ajax({
                 type: 'POST',
-                url: 'models/main.php',
+                url: 'api/main.php',
                 data: {
                     "user_id": window.localStorage.getItem("userid"),
                     "target": $("#neederTarget").val(),
@@ -73,7 +73,7 @@ $("#helperBtn").click(function () {
         } else {
             $.ajax({
                 type: 'POST',
-                url: 'models/main.php',
+                url: 'api/main.php',
                 data: {
                     "user_id": window.localStorage.getItem("userid"),
                     "target": $("#helperTarget").val(),

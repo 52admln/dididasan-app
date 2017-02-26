@@ -3,7 +3,7 @@ $("button").click(function () {
     if(cxValidation($("#loginForm"))) {
         $.ajax({
             type: 'POST',
-            url: 'models/login.php',
+            url: 'api/login.php',
             data: $('#loginForm').serialize(),
             dataType: 'json',
             timeout: 3000,

@@ -4,7 +4,7 @@
 
 session_start();
 
-require '../functions/db_connect.php';
+require './common/db_connect.php';
 
 $route = $_GET['action'];
 $userid = isset($_POST['user_id']) ? $_POST['user_id'] : -1;

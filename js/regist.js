@@ -9,7 +9,7 @@ $("button").click(function () {
 
         $.ajax({
             type: 'POST',
-            url: 'models/regist.php',
+            url: 'api/regist.php',
             data: $('#registForm').serialize(),
             dataType: 'json',
             timeout: 3000,

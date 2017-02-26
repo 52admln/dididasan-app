@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require '../functions/db_connect.php';
-require '../functions/data_validate.php';
+require './common/db_connect.php';
+require './common/data_validate.php';
 
 $userid = $_POST['user_id'];
 $target = urlencode($_POST['target']); // 中文乱码解决

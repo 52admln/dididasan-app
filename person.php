@@ -21,7 +21,7 @@
                 <img src="http://wyj.im/images/avatar.jpg" alt="" width="80" height="80" id="previewer">
             </div>
             <p class="user-nickname js-username">
-                MR.WANG <span class="icon-sex"><i class="fa fa-venus" aria-hidden="true"></i></span>
+                Nickname <span class="icon-sex"><i class="fa fa-venus" aria-hidden="true"></i></span>
             </p>
         </div>
         <div class="mid-title">

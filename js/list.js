@@ -128,7 +128,7 @@ function geoFindMe() {
 function getData() {
     $.ajax({
         type: 'POST',
-        url: 'models/getData.php',
+        url: 'api/getData.php',
         data: {
             "user_id": window.localStorage.getItem("userid"),
             "usertype": window.localStorage.getItem("usertype")
