@@ -38,3 +38,6 @@ http://stackoverflow.com/questions/14433637/file-get-contents-expects-parameter-
 http://bbs.csdn.net/topics/391038262
 http://blog.libnav.com/php/169.html
 
+6. 问题内容:
+iOS Safari 上传提示 `Cross-origin image load denied by Cross-Origin Resource Sharing policy`
+解决方案: https://github.com/alexk111/ngImgCrop/issues/28
