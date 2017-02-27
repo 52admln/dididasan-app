@@ -222,7 +222,8 @@ function fileToDataURL(file, callback) {
 function compressDataURL(dataURL, ratio, callback) {
     const img = new window.Image();
     img.src = dataURL;
-    img.setAttribute('crossOrigin', 'anonymous')
+    // below code will cause Cross-origin image load denied by Cross-Origin Resource Sharing policy. problem
+    // img.setAttribute('crossOrigin', 'anonymous')
     // onload
     img.onload = function () {
         const canvas = document.createElement('canvas');

@@ -28,7 +28,8 @@ $dataUrl = 'data:' . $fileType . ';base64,' . $base64_img; // 转为 base64 编�
 $fullPath = "uploads/".$output.".jpg";
 $userid = $_POST['user_id'];
 
-if(file_put_contents( "../uploads/".$output.".jpg", base64_decode($base64_img)) && savePath($fullPath, $userid)) {
+if(file_put_contents( "../uploads/".$output.".jpg", base64_decode($base64_img)) && savePath($fullPath, $userid) ) {
+
     $json = json_encode(array(
         'name' => $fileName,
         'type' => $fileType,
@@ -56,7 +57,6 @@ function savePath($fullPath, $userid){
     if (!$result) {
         echo '不能执行SQL语句';
         exit();
-        return false;
     }
     $conn->close();
     return true;
