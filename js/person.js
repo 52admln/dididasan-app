@@ -193,6 +193,7 @@ document.getElementById('file-input').onchange = function (event) {
                 console.log(xhr.responseText);
             }
         };
+        // todo 待解决 cross origin 错误
         xhr.open('POST', 'api/upload.php', true);
         xhr.send(targetFormData);
     });

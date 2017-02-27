@@ -150,10 +150,12 @@ function renderData(source) {
     var allowed = source.setting[0]['user_allowed'];
     var user_sex = source.setting[0]['user_sex'];
     var sex_show = "";
+    var target_location;
+
     if (allowed == "0") {
         source.data.forEach(function (item, index) {
 
-            var target_location = item['location'].split(",");
+            target_location = item['location'].split(",");
             //为“0” 则不允许搜索异性,为1 则允许为异性,做性别判断
             // sex 0 为男 1 为女
 
@@ -194,8 +196,7 @@ function renderData(source) {
         $("#list").html(optString);
     } else {
         source.data.forEach(function (item, index) {
-
-            var target_location = item['location'].split(",");
+            target_location = item['location'].split(",");
             //为“0” 则不允许搜索异性,为1 则允许为异性,做性别判断
             // sex 0 为男 1 为女
             if (item['sex'] == "1") {
