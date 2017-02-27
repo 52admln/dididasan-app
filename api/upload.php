@@ -2,20 +2,9 @@
 
 require './common/db_connect.php';
 
-//if( isset( $_REQUEST['file']) ){
-//    var_dump($_REQUEST);
-//    var_dump($_FILES);
-//    die();
-//}
+//var_dump($_POST);
 
-//var_dump($_REQUEST);
-//var_dump($_FILES);
 header('Content-Type: text/plain; charset=utf-8');
-
-//var_dump($_FILES['file']);
-//echo("===========================");
-//$imgData = addslashes (file_get_contents($_FILES['file']['tmp_name']));
-//echo(base64_encode($imgData));
 
 function random_string($length) {
     $key = '';
@@ -36,7 +25,10 @@ $fileContent = file_get_contents($_FILES['file']['tmp_name']);
 $base64_img = base64_encode($fileContent);
 $dataUrl = 'data:' . $fileType . ';base64,' . $base64_img; // 转为 base64 编码
 
-if(file_put_contents( "../uploads/".$output.".jpg", base64_decode($base64_img))) {
+$fullPath = "uploads/".$output.".jpg";
+$userid = $_POST['user_id'];
+
+if(file_put_contents( "../uploads/".$output.".jpg", base64_decode($base64_img)) && savePath($fullPath, $userid)) {
     $json = json_encode(array(
         'name' => $fileName,
         'type' => $fileType,
@@ -55,6 +47,21 @@ if(file_put_contents( "../uploads/".$output.".jpg", base64_decode($base64_img)))
 }
 
 // todo  存储文件后将路径存入数据库
+
+
+function savePath($fullPath, $userid){
+    $conn = db_connect();
+    $query = "update users SET avatar='{$fullPath}' where user_id='{$userid}'";
+    $result = $conn->query($query);
+    if (!$result) {
+        echo '不能执行SQL语句';
+        exit();
+        return false;
+    }
+    $conn->close();
+    return true;
+}
+
 
 
 

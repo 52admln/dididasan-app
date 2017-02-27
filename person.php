@@ -47,7 +47,7 @@
     </div>
 </div>
 <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/6.23.1/babel.min.js"></script>
 <script src="js/person.js"></script>
 </body>
 </html>

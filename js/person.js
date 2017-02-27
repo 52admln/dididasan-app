@@ -29,6 +29,7 @@ function renderData(source) {
     $('.js-school').val(source.data[0]['school']);
     $('.js-addr').val(source.data[0]['location']);
     $('.js-allowed').val(source.data[0]['allowed']);
+    $('#previewer').attr('src', source.data[0]['avatar']);
 }
 
 function init() {
@@ -303,6 +304,7 @@ function compressImage(file, ratio, callback) {
 
             const oData = new NFormData();
             oData.append('file', newBlob);
+            oData.append("user_id", window.localStorage.getItem("userid"));
             console.log("oData", oData);
             callback(oData);
         });
