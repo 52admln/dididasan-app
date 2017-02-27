@@ -45,7 +45,8 @@ function register($username, $password, $sex, $telephone)
         exit();
     }
     // 男 0  女 1
-    $sql = "insert into users(username, password, telephone, sex) values ('" . $username . "', sha1('" . $password . "'), '" . $telephone . "','" . $sex . "')";
+    $sql = "insert into users(username, password, telephone, sex, avatar) values ".
+        "('" . $username . "', sha1('" . $password . "'), '" . $telephone . "','" . $sex . "','img/noavatar_big.gif')";
 //    echo $sql;
     $result = $conn->query($sql);
 

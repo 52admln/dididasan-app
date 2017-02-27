@@ -16,7 +16,7 @@ if(isset($_SESSION['username'])) {
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <link rel="stylesheet" href="css/style.css">
     <!-- 表单验证 -->
-    <link rel="stylesheet" href="libs/cxValidation/css/cxvalidation.css">
+    <link rel="stylesheet" href="libs/mobileValidate/css/validate.css">
 </head>
 <body>
 <div class="wrapper">
@@ -28,8 +28,8 @@ if(isset($_SESSION['username'])) {
         </div>
         <h2 id="title">登录</h2>
         <form class="form" method="post" id="loginForm">
-            <input type="text" name="username" placeholder="用户名" data-validation="required,onlyLetterNumber" data-validation-message='{"required":"用户名不能为空"}'>
-            <input type="password" name="password" placeholder="密码" data-validation="required" data-validation-message='{"required":"密码不能为空"}'>
+            <input type="text" name="username" placeholder="用户名" data-required="true" data-descriptions="username" data-validate="username">
+            <input type="password" name="password" placeholder="密码" data-required="true" data-descriptions="password" data-conditional="password">
             <div class="btns">
                 <button type="submit" class="btn btn-solid">登录</button>
                 <a href="index.php" class="btn btn-opacity">返回首页</a>
@@ -40,8 +40,8 @@ if(isset($_SESSION['username'])) {
 <footer>
     Timu蜗壳工作室
 </footer>
-<script src="//cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
-<script src="libs/cxValidation/js/cxvalidation.min.js"></script>
+<script src="http://zeptojs.com/zepto.min.js"></script>
+<script src="libs/mobileValidate/js/zepto-mvalidate.js"></script>
 <script src="js/login.js"></script>
 </body>
 </html>

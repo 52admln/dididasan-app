@@ -18,7 +18,7 @@
         </div>
         <div class="user-header">
             <div class="user-avatar">
-                <img src="http://wyj.im/images/avatar.jpg" alt="" width="80" height="80" id="previewer">
+                <img src="img/noavatar_big.gif" alt="" width="80" height="80" id="previewer">
             </div>
             <p class="user-nickname js-username">
                 Nickname <span class="icon-sex"><i class="fa fa-venus" aria-hidden="true"></i></span>

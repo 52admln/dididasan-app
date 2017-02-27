@@ -38,7 +38,7 @@ if(!isset($_SESSION['username'])) {
 <footer class="main-footer">
     Timu蜗壳工作室
 </footer>
-<script src="//cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
+<script src="https://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
