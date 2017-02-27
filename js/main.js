@@ -24,10 +24,11 @@ function geoFindMe() {
         //纬度 , 经度
         locations = latitude + "," + longitude;
         console.log(locations);
+        document.querySelector(".locating-status").innerHTML = "定位成功!";
     }
 
     function error() {
-        console.log("无法获取您的位置");
+        document.querySelector(".locating-status").innerHTML = "无法获取您的定位。";
     }
 
     console.log("Locating…");
@@ -38,7 +39,7 @@ geoFindMe();
 $("#neederBtn").click(function () {
     if ($("#neederTarget").val().length > 0) {
         if (locations == null) {
-            alert("未获取到地理位置,请稍候再试。");
+            document.querySelector(".locating-status").innerHTML = "未获取到地理位置,请稍候再试";
         } else {
             $.ajax({
                 type: 'POST',
@@ -69,7 +70,7 @@ $("#neederBtn").click(function () {
 $("#helperBtn").click(function () {
     if ($("#helperTarget").val().length > 0) {
         if (locations == null) {
-            alert("未获取到地理位置,请稍候再试。");
+            document.querySelector(".locating-status").innerHTML = "未获取到地理位置,请稍候再试";
         } else {
             $.ajax({
                 type: 'POST',

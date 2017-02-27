@@ -538,7 +538,10 @@ a.type-change {
     text-align: center;
     color: #666;
 }
-
+.locating i{
+    font-size: 20px;
+    margin-right: 10px;
+}
 
 /*footer*/
 footer {

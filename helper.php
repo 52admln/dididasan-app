@@ -25,6 +25,7 @@ if(!isset($_SESSION['username'])) {
         </div>
         <div class="content">
             <h3>您好,您现在要去哪里?</h3>
+            <div class="locating"><i class="fa fa-map-marker" aria-hidden="true"></i><span class="locating-status">正在定位中...</span></div>
                 <div class="input-place">
                     <input type="text" id="helperTarget" placeholder="请输入目的地">
                 </div>

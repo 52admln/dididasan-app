@@ -18,7 +18,7 @@ function valid_username($username) {
 }
 
 function isTelNumber($phone) {
-    if (strlen ( $phone ) != 11 || ! preg_match ( '/^1[3|4|5|7|8][0-9]\d{4,8}$/', $phone )) {
+    if (strlen ( $phone ) != 11 || ! preg_match ( '/^1[3|4|5|7|8][0-9]\d{8}$/', $phone )) {
         return false;
     } else {
         return true;

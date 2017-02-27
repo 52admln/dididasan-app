@@ -1,7 +1,7 @@
 $.mvalidateExtend({
     phone:{
         required : true,
-        pattern : /^1[3|4|5|7|8][0-9]\d{4,8}$/,
+        pattern : /^1[3|4|5|7|8][0-9]\d{8}$/,
         each:function(){
 
         },
