@@ -46,9 +46,9 @@ if(file_put_contents( "../uploads/".$output.".jpg", base64_decode($base64_img)) 
     echo $json;
 }
 
-// todo  存储文件后将路径存入数据库
 
 
+// 存储图片路径到数据库
 function savePath($fullPath, $userid){
     $conn = db_connect();
     $query = "update users SET avatar='{$fullPath}' where user_id='{$userid}'";
@@ -61,6 +61,10 @@ function savePath($fullPath, $userid){
     $conn->close();
     return true;
 }
+
+
+// todo 增加图片上传替换路径,并删除原图片
+
 
 
 

@@ -189,6 +189,7 @@ document.getElementById('file-input').onchange = function (event) {
             } else {
                 // 上传失败
                 // alert("上传失败");
+                // todo 增加错误提示
                 console.log(xhr.responseText);
             }
         };

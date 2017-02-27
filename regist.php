@@ -60,7 +60,7 @@ if(isset($_SESSION['username'])) {
 <footer>
     Timu蜗壳工作室
 </footer>
-<script src="http://zeptojs.com/zepto.min.js"></script>
+<script src="libs/zepto/zepto.min.js"></script>
 <script src="libs/mobileValidate/js/zepto-mvalidate.js"></script>
 <script src="js/regist.js"></script>
 </body>
