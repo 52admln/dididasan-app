@@ -6,6 +6,8 @@ require './common/db_connect.php';
 
 header('Content-Type: text/plain; charset=utf-8');
 
+const DEFAULT_IMG_PATH = "img/noavatar_big.gif";
+
 function random_string($length) {
     $key = '';
     $keys = array_merge(range(0, 9), range('a', 'z'));
@@ -51,19 +53,44 @@ if(file_put_contents( "../uploads/".$output.".jpg", base64_decode($base64_img)) 
 
 // 存储图片路径到数据库
 function savePath($fullPath, $userid){
+    // 增加图片上传替换路径,并删除原图片
+
     $conn = db_connect();
-    $query = "update users SET avatar='{$fullPath}' where user_id='{$userid}'";
-    $result = $conn->query($query);
-    if (!$result) {
+    $selectQuery = "select avatar from users where user_id = {$userid}";
+    $selectResult = $conn->query($selectQuery);
+    if (!$selectResult) {
         echo '不能执行SQL语句';
         exit();
     }
+    if ($selectResult->num_rows) {
+        $row = $selectResult->fetch_assoc();
+//        判断如果是默认头像,直接替换
+        if($row['avatar'] == DEFAULT_IMG_PATH) {
+            $query = "update users SET avatar='{$fullPath}' where user_id='{$userid}'";
+            $result = $conn->query($query);
+            if (!$result) {
+                echo '不能执行SQL语句';
+                exit();
+            }
+//            如果是已经上传过头像的,则将原头像路径提取出来,替换为新路径
+        } else {
+            $oldPath = $row['avatar']; // 旧路径
+            $query = "update users SET avatar='{$fullPath}' where user_id='{$userid}'";
+            $result = $conn->query($query);
+            if (!$result) {
+                echo '不能执行SQL语句';
+                exit();
+            }
+//            删除文件
+            unlink("../".$oldPath);
+        }
+    }
+
+
     $conn->close();
+//     delete avatar
     return true;
 }
-
-
-// todo 增加图片上传替换路径,并删除原图片
 
 
 
