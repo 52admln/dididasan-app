@@ -17,7 +17,7 @@ function distance(lat, lng, goalLat, goalLng) {
         var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a / 2), 2) + Math.cos(radLat1) * Math.cos(radLat2) * Math.pow(Math.sin(b / 2), 2)));
         s = s * EARTH_RADIUS;
         s = Math.round(s * 10000) / 10000;
-        return s * 1000;
+        return formatDistance(s * 1000);
     } else {
         return 0;
     }
@@ -63,39 +63,46 @@ function distance(lat, lng, goalLat, goalLng) {
 var locations = null; // 获取当前经纬度
 
 /**
- * [Datestr 时间戳转字符串格式]
- * @author 邱先生
- * @copyright 烟火里的尘埃
- * @version [V1.0版本]
- * @date 2016-06-26
- * @param  {[type]} date [传入php 时间戳]
+ * 时间戳转字符串格式
+ * @param  {[type]} date [传入时间戳]
  */
-function dateStr(date){
+function dateStr(date) {
     //获取js 时间戳
-    var time=new Date().getTime();
+    var time = new Date().getTime();
     //去掉 js 时间戳后三位，与php 时间戳保持一致
-    time=parseInt((time-date*1000)/1000);
+    time = parseInt((time - date * 1000) / 1000);
 
     //存储转换值
     var s;
-    if(time<60*10){//十分钟内
+    if (time < 60 * 10) {//十分钟内
         return '刚刚';
-    }else if((time<60*60)&&(time>=60*10)){
+    } else if ((time < 60 * 60) && (time >= 60 * 10)) {
         //超过十分钟少于1小时
-        s = Math.floor(time/60);
-        return  s+"分钟前";
-    }else if((time<60*60*24)&&(time>=60*60)){
+        s = Math.floor(time / 60);
+        return s + "分钟前";
+    } else if ((time < 60 * 60 * 24) && (time >= 60 * 60)) {
         //超过1小时少于24小时
-        s = Math.floor(time/60/60);
-        return  s+"小时前";
-    }else if((time<60*60*24*3)&&(time>=60*60*24)){
+        s = Math.floor(time / 60 / 60);
+        return s + "小时前";
+    } else if ((time < 60 * 60 * 24 * 3) && (time >= 60 * 60 * 24)) {
         //超过1天少于3天内
-        s = Math.floor(time/60/60/24);
-        return s+"天前";
-    }else{
+        s = Math.floor(time / 60 / 60 / 24);
+        return s + "天前";
+    } else {
         //超过3天
-        var _date= new Date(parseInt(date) * 1000);
-        return _date.getFullYear()+"/"+(_date.getMonth()+1)+"/"+_date.getDate();
+        var _date = new Date(parseInt(date) * 1000);
+        return _date.getFullYear() + "/" + (_date.getMonth() + 1) + "/" + _date.getDate();
+    }
+}
+/**
+ * 距离格式化
+ * @param distance 传入距离
+ */
+function formatDistance(distance) {
+    if (distance < 1000) {
+        return distance + "米";
+    } else if (distance > 1000) {
+        return (Math.round(distance / 100) / 10).toFixed(1) + "公里";
     }
 }
 
@@ -174,7 +181,7 @@ function renderData(source) {
                     + '<p>'
                     + '<span class="nickname">' + item["username"] + '</span>'
                     + '<span class="icon-sex">' + sex_show + '</span>'
-                    + '<span class="distance">' + parseInt(distance(locations.latitude, locations.longitude, target_location[0], target_location[1])) + '米</span>'
+                    + '<span class="distance">' + distance(locations.latitude, locations.longitude, target_location[0], target_location[1]) + '</span>'
                     + '<span class="time">' + dateStr(item['time']) + '</span>'
                     + '</p>'
                     + '<p>'
@@ -190,7 +197,7 @@ function renderData(source) {
                     + '</li>';
             }
             console.log(locations.latitude, locations.longitude);
-            console.log(target_location[0], target_location[1]);
+            //console.log(target_location[0], target_location[1]);
         });
 
         $("#list").html(optString);
@@ -215,7 +222,7 @@ function renderData(source) {
                 + '<p>'
                 + '<span class="nickname">' + item["username"] + '</span>'
                 + '<span class="icon-sex">' + sex_show + '</span>'
-                + '<span class="distance">' + parseInt(distance(locations.latitude, locations.longitude, target_location[0], target_location[1])) + '米</span>'
+                + '<span class="distance">' + distance(locations.latitude, locations.longitude, target_location[0], target_location[1]) + '</span>'
                 + '<span class="time">' + dateStr(item['time']) + '</span>'
                 + '</p>'
                 + '<p>'
@@ -231,7 +238,7 @@ function renderData(source) {
                 + '</li>';
         });
         console.log(locations.latitude, locations.longitude);
-        console.log(target_location[0], target_location[1]);
+        //console.log(target_location[0], target_location[1]);
         $("#list").html(optString);
     }
     if (source.data.length > 0) {
