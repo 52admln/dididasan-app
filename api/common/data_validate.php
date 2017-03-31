@@ -10,7 +10,7 @@ function filled_out($form_vars) {
 }
 
 function valid_username($username) {
-  if (preg_match ('/[a-zA-Z0-9_]{2,10}$/', $username)) {
+  if (preg_match ('/^[a-zA-Z]+[a-zA-Z0-9_]{2,10}$/', $username)) {
     return true;
   } else {
     return false;
