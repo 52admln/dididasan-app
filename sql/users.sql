@@ -1,1 +1,0 @@
-CREATE TABLE `dididasan`.`users` ( `user_id` INT NOT NULL AUTO_INCREMENT , `username` VARCHAR(10) NOT NULL , `telephone` TEXT NULL DEFAULT NULL , `sex` VARCHAR(2) NULL , `school` TEXT NULL , `slogan` TEXT NULL , `location` TEXT NULL , `allowed` INT NOT NULL DEFAULT '0' , `password` VARCHAR(25) NOT NULL , PRIMARY KEY (`user_id`)) ENGINE = InnoDB;

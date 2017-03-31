@@ -5,7 +5,8 @@ require './common/db_connect.php';
 require './common/data_validate.php';
 
 $userid = $_POST['user_id'];
-$target = urlencode($_POST['target']); // 中文乱码解决
+//$target = urlencode($_POST['target']); // 中文乱码解决
+$target = $_POST['target'];
 $location = $_POST['location'];
 $usertype = $_POST['usertype'];
 $time = time();
