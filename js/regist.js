@@ -24,6 +24,7 @@ $.mvalidateExtend({
 });
 
 $("button").click(function (e) {
+    alert(1);
     $("#registForm").mvalidate({
         type:1,
         onKeyup:false,
@@ -32,29 +33,29 @@ $("button").click(function (e) {
         firstInvalidFocus:true,
         valid:function(event,options){
             //点击提交按钮时,表单通过验证触发函数
+            alert('sss');
+             $.ajax({
+                 type: 'POST',
+                 url: 'api/regist.php',
+                 data: $('#registForm').serialize(),
+                 dataType: 'json',
+                 timeout: 3000,
+                 success: function(data){
+                     if(data.status == "success") {
+                         $("#messageList").html('<div class="text">[提示]注册成功!正在跳转...</div>');
+                         window.localStorage.setItem("userid", data["user_id"]);
+                         // 页面跳转
+                         setTimeout(function () {
+                             window.location.href = "./main.php";
+                         }, 500);
+                     }
 
-            // $.ajax({
-            //     type: 'POST',
-            //     url: 'api/regist.php',
-            //     data: $('#registForm').serialize(),
-            //     dataType: 'json',
-            //     timeout: 3000,
-            //     success: function(data){
-            //         if(data.status == "success") {
-            //             $("#messageList").html('<div class="text">[提示]注册成功!正在跳转...</div>');
-            //             window.localStorage.setItem("userid", data["user_id"]);
-            //             // 页面跳转
-            //             setTimeout(function () {
-            //                 window.location.href = "./main.php";
-            //             }, 500);
-            //         }
-            //
-            //     },
-            //     error: function(xhr, type){
-            //         $("#messageList").html('<div class="text">[错误]'+xhr.responseText+'</div>');
-            //         console.error(xhr.responseText);
-            //     }
-            // });
+                 },
+                 error: function(xhr, type){
+                     $("#messageList").html('<div class="text">[错误]'+xhr.responseText+'</div>');
+                     console.error(xhr.responseText);
+                 }
+             });
 
             event.preventDefault();
         },

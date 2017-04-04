@@ -43,7 +43,7 @@ if(isset($_SESSION['username'])) {
             <input type="password" name="password" placeholder="密码" id="pwd" data-required="true" data-descriptions="password" data-conditional="password">
             <input type="password" name="confirm_password" placeholder="重复密码" id="confirmpwd" data-required="true" data-descriptions="confirmpwd"  data-conditional="confirmpwd">
             <input type="tel" name="telephone" placeholder="手机号码" id="phoneyzm" data-descriptions="telphone" data-validate="phone">
-            <select name="sex">
+            <select name="sex" data-required="true">
                 <option value="0" selected>男生</option>
                 <option value="1">女生</option>
             </select>
