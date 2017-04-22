@@ -294,6 +294,10 @@ a.btn-opacity {
     color: #2eadef;
     font-size: 16px;
 }
+.locating {
+    width: 200px;
+    margin: 0 auto;
+}
 
 /* helper */
 

@@ -8,7 +8,7 @@ function db_connect()
     $LOCALHOST = '127.0.0.1';
     $USERNAME = 'root';
     $PASSWORD = '';
-    $DATABASE = 'dididasan';
+    $DATABASE = 'didi_dasan';
     $mysqli = new mysqli($LOCALHOST, $USERNAME, $PASSWORD, $DATABASE);
     // 设置字符集,避免乱码
     $mysqli->set_charset("utf8");

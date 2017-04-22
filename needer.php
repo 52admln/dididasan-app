@@ -41,6 +41,8 @@ if(!isset($_SESSION['username'])) {
     Timu蜗壳工作室
 </footer>
 <script src="https://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
+<script src="https://cdn.bootcss.com/axios/0.16.1/axios.min.js"></script>
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=8b14f837460ac8da096b0964f8feb168"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

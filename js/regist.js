@@ -24,7 +24,7 @@ $.mvalidateExtend({
 });
 
 $("button").click(function (e) {
-    alert(1);
+    //alert(1);
     $("#registForm").mvalidate({
         type:1,
         onKeyup:false,
@@ -33,7 +33,7 @@ $("button").click(function (e) {
         firstInvalidFocus:true,
         valid:function(event,options){
             //点击提交按钮时,表单通过验证触发函数
-            alert('sss');
+            //alert('sss');
              $.ajax({
                  type: 'POST',
                  url: 'api/regist.php',
