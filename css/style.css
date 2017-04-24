@@ -144,10 +144,20 @@ select {
 }
 
 .btns {
+    position: absolute;
+    bottom: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     text-align: center;
-    padding-top: 20px;
 }
-
+.btns.userinfo {
+    position: relative;
+    bottom:0;
+    margin-top: 10px;
+}
 .btn {
     -webkit-appearance: none;
     -moz-appearance: none;

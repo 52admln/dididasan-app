@@ -38,7 +38,7 @@
                 </select>
             </li>
         </ul>
-        <div class="btns">
+        <div class="btns userinfo">
             <input type="file" id="file-input" class="hidden" name="image" accept="image/gif, image/jpeg, image/png">
             <button type="button" class="btn btn-solid btn-full js-upload-avatar">上传头像</button>
             <button type="button" class="btn btn-solid btn-full js-update">更新资料</button>

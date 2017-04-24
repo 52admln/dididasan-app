@@ -67,4 +67,10 @@ php连接数据库的mysqli设置字符集 utf8
 参考连接: http://php.net/manual/zh/mysqli.set-charset.php
 
 
+8. 在 Safari 当中，window.history.back() 无法使用
+
+解决方法： 
+使用：onclick="javascript:history.go(-1)"
+
+参考连接：http://stackoverflow.com/questions/1873290/using-javascript-history-back-fails-in-safari-how-do-i-make-it-cross-browse
 

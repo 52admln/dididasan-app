@@ -2,9 +2,11 @@
  * Created by Wyj on 1/11/17.
  */
 
-$("#goBack").click(function () {
-    window.history.back();
-});
+// $("#goBack").click(function () {
+//     // window.history.back();
+//     window.history.go(-1);
+// });
+
 
 function distance(lat, lng, goalLat, goalLng) {
     //传入位置纬度，经度和目标纬度，经度，返回距离值，单位米，对地理感兴趣的童鞋可以去研究下计算公式
@@ -106,31 +108,31 @@ function formatDistance(distance) {
     }
 }
 
-function geoFindMe() {
-
-    if (!navigator.geolocation) {
-        alert("您的浏览器不支持地理位置");
-        return;
-    }
-    function success(position) {
-        var latitude = position.coords.latitude;
-        var longitude = position.coords.longitude;
-        //纬度 , 经度
-        locations = {
-            "latitude": latitude,
-            "longitude": longitude
-        };
-        console.log(locations);
-        getData();
-    }
-
-    function error() {
-        alert("无法获取您的位置");
-    }
-
-    console.log("Locating…");
-    navigator.geolocation.getCurrentPosition(success, error);
-}
+// function geoFindMe() {
+//
+//     if (!navigator.geolocation) {
+//         alert("您的浏览器不支持地理位置");
+//         return;
+//     }
+//     function success(position) {
+//         var latitude = position.coords.latitude;
+//         var longitude = position.coords.longitude;
+//         //纬度 , 经度
+//         locations = {
+//             "latitude": latitude,
+//             "longitude": longitude
+//         };
+//         console.log(locations);
+//         getData();
+//     }
+//
+//     function error() {
+//         alert("无法获取您的位置");
+//     }
+//
+//     console.log("Locating…");
+//     navigator.geolocation.getCurrentPosition(success, error);
+// }
 
 function getData() {
     $.ajax({
@@ -175,7 +177,7 @@ function renderData(source) {
                 }
                 optString += '<li>'
                     + '<div class="fl avatar">'
-                    + '<img src="http://wyj.im/images/avatar.jpg" alt="" width="50" height="50">'
+                    + '<img src="' + item["avatar"] + '" alt="" width="50" height="50">'
                     + '</div>'
                     + '<div class="fl info">'
                     + '<p>'
@@ -216,7 +218,7 @@ function renderData(source) {
             // 所有性别渲染
             optString += '<li>'
                 + '<div class="fl avatar">'
-                + '<img src="http://wyj.im/images/avatar.jpg" alt="" width="50" height="50">'
+                + '<img src="' + item["avatar"] + '" alt="" width="50" height="50">'
                 + '</div>'
                 + '<div class="fl info">'
                 + '<p>'
@@ -252,7 +254,53 @@ function renderData(source) {
 }
 
 function init() {
-    geoFindMe();
+//     geoFindMe();
+}
+
+
+var map, geolocation;
+//加载地图，调用浏览器定位服务
+map = new AMap.Map('container', {
+    resizeEnable: true
+});
+map.plugin('AMap.Geolocation', function () {
+    geolocation = new AMap.Geolocation({
+        enableHighAccuracy: true,//是否使用高精度定位，默认:true
+        timeout: 10000,          //超过10秒后停止定位，默认：无穷大
+        buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+        zoomToAccuracy: true,      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+        buttonPosition: 'RB'
+    });
+    map.addControl(geolocation);
+    geolocation.getCurrentPosition();
+    AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
+    AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+});
+//解析定位结果
+function onComplete(data) {
+    //var str = ['定位成功'];
+    //str.push('经度：' + data.position.getLng());
+    //str.push('纬度：' + data.position.getLat());
+    //if (data.accuracy) {
+    //    str.push('精度：' + data.accuracy + ' 米');
+    //}//如为IP精确定位结果则没有精度信息
+
+    var latitude = data.position.getLng();
+    var longitude = data.position.getLat();
+    //纬度 , 经度
+    locations = {
+        "latitude": latitude,
+        "longitude": longitude
+    };
+    console.log('定位成功');
+    console.log(data);
+    console.log(data.formattedAddress);
+    getData();
+}
+//解析定位错误信息
+function onError(data) {
+    alert("无法获取您的位置");
+    console.log('定位失败');
 }
 
 init();

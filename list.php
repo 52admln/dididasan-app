@@ -20,13 +20,13 @@ if(!isset($_SESSION['username'])) {
 
     <div class="container-main">
         <div class="title">
-            <a href="#" id="goBack"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+            <a href="javascript:history.go(-1)"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
             <h3>身边有伞的好心人</h3>
         </div>
         <ul class="list-content hidden" id="list">
             <li>
                 <div class="fl avatar">
-                    <img src="http://wyj.im/images/avatar.jpg" alt="" width="50" height="50">
+                    <img src="img/noavatar_big.gif" alt="" width="50" height="50">
                 </div>
                 <div class="fl info">
                     <p>
@@ -57,6 +57,7 @@ if(!isset($_SESSION['username'])) {
     Timu蜗壳工作室
 </footer>
 <script src="https://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=8b14f837460ac8da096b0964f8feb168"></script>
 <script src="js/list.js"></script>
 </body>
 </html>

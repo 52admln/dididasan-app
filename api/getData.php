@@ -27,7 +27,7 @@ function getData($userid, $type)
 {
 
     $conn = db_connect();
-    $query = "select users.username,users.telephone,users.sex,users.allowed,helper.location,helper.target,helper.time from helper left join users on helper.user_id = users.user_id "
+    $query = "select users.username,users.telephone,users.sex,users.allowed,helper.location,helper.target,helper.time,users.avatar from helper left join users on helper.user_id = users.user_id "
         . "where helper.itemtype = '" . $type . "'";
 //    echo $query;
     $result = $conn->query($query);
@@ -39,7 +39,7 @@ function getData($userid, $type)
     $i = 0;
     while ($row = $result->fetch_assoc()) {
 
-        $jsonData["data"][$i] = array('username' => $row['username'], 'telephone' => $row['telephone'], 'sex' => $row['sex'], 'location' => $row['location'], 'target' => urldecode($row['target']), 'time' => $row['time']);
+        $jsonData["data"][$i] = array('username' => $row['username'], 'telephone' => $row['telephone'], 'sex' => $row['sex'], 'location' => $row['location'], 'target' => urldecode($row['target']), 'time' => $row['time'],'avatar' => $row['avatar']);
         // var_dump($jsonData);
         $i++;
     }

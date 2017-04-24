@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 2017-03-31 05:12:50
+-- Generation Time: 2017-04-24 13:57:06
 -- 服务器版本： 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dididasan`
+-- Database: `didi_dasan`
 --
 
 -- --------------------------------------------------------
@@ -59,12 +59,18 @@ CREATE TABLE `helper` (
 --
 
 INSERT INTO `helper` (`id`, `location`, `target`, `user_id`, `time`, `itemtype`) VALUES
-(4, '30.430575599999997,120.30667439999999', '测试地点2222', 4, '1485269083', 'helper'),
-(6, '30.0874457,119.89546899999999', '浙江杭州', 5, '1490929847', 'helper'),
-(15, '30.430570999999997,120.3066682', '测试地点1', 4, '1485269065', 'needer'),
-(16, '30.0869388,119.89573360000001', '杭州', 5, '1490929831', 'needer'),
-(17, '30.0875464,119.89593199999999', '22222', 7, '1484266497', 'needer'),
-(18, '30.0875464,119.89593199999999', '222222222233', 7, '1484266504', 'helper');
+(4, '119.899977,30.085013', '测试地点2222', 4, '1485269083', 'helper'),
+(15, '119.899977,30.085013', 'sssssssssssss', 4, '1492827593', 'needer'),
+(16, '119.899977,30.085013', '杭州', 5, '1490929831', 'needer'),
+(17, '119.899977,30.085013', '22222', 7, '1484266497', 'needer'),
+(18, '119.899977,30.085013', '222222222233', 7, '1484266504', 'helper'),
+(19, '119.899977,30.085013', '北京北京别经', 8, '1492830204', 'needer'),
+(20, '119.899977,30.085013', '湿答答SDAAD', 8, '1492830215', 'helper'),
+(21, '119.899977,30.085013', '测试地点2222', 4, '1485269083', 'helper'),
+(22, '119.899977,30.085013', '浙江杭州', 5, '1490929847', 'helper'),
+(23, '119.899977,30.085013', '杭州', 5, '1490929831', 'needer'),
+(24, '119.899977,30.085013', '22222', 7, '1484266497', 'needer'),
+(25, '119.899977,30.085013', '222222222233', 7, '1484266504', 'helper');
 
 -- --------------------------------------------------------
 
@@ -93,7 +99,8 @@ INSERT INTO `users` (`user_id`, `username`, `telephone`, `sex`, `school`, `sloga
 (4, 'admin', '13456722020', 1, '112', '23', '3', 1, 'eaeb8c1250f18a13b72c212ceb85f4cfc100f817', 'img/noavatar_big.gif'),
 (5, 'admin2', '13456722020', 0, '信息工程学院', '111', '111', 1, 'eaeb8c1250f18a13b72c212ceb85f4cfc100f817', 'img/noavatar_big.gif'),
 (6, 'admin4', '13456722020', 0, NULL, NULL, NULL, 0, 'eaeb8c1250f18a13b72c212ceb85f4cfc100f817', 'img/noavatar_big.gif'),
-(7, 'admin3', '13333333333', 1, NULL, NULL, NULL, 0, 'eaeb8c1250f18a13b72c212ceb85f4cfc100f817', 'img/noavatar_big.gif');
+(7, 'admin3', '13333333333', 1, NULL, NULL, NULL, 0, 'eaeb8c1250f18a13b72c212ceb85f4cfc100f817', 'img/noavatar_big.gif'),
+(8, 'admin111', '13456722020', 0, NULL, NULL, NULL, 0, '273a0c7bd3c679ba9a6f5d99078e36e85d02b952', 'img/noavatar_big.gif');
 
 --
 -- Indexes for dumped tables
@@ -130,12 +137,12 @@ ALTER TABLE `admin`
 -- 使用表AUTO_INCREMENT `helper`
 --
 ALTER TABLE `helper`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- 使用表AUTO_INCREMENT `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

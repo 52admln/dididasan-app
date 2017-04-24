@@ -1,21 +1,9 @@
 $("#neederTarget").val("");
 $("#helperTarget").val("");
 
-$('input[type=text]').bind('input propertychange', function () {
-    if ($(this).val().length > 0) {
-        $("button").removeAttr("disabled");
-        $("button").removeClass("disabled");
-    } else {
-        $("button").attr({"disabled": "disabled"});
-        $("button").addClass("disabled");
-    }
-    //console.log($(this).val().length + ' characters');
-});
-
-
 // 更换为高德地图API 定位
 
-var map, geolocation, locations;
+var map, geolocation, locations, isLocated=false;
 //加载地图，调用浏览器定位服务
 map = new AMap.Map('container', {
     resizeEnable: true
@@ -46,6 +34,8 @@ function onComplete(data) {
     var longitude = data.position.getLat();
     //纬度 , 经度
     locations = latitude + "," + longitude;
+    isLocated = true;
+    checkCanInput();
     console.log('定位成功');
     console.log(data);
     console.log(data.formattedAddress);
@@ -54,9 +44,26 @@ function onComplete(data) {
 //解析定位错误信息
 function onError(data) {
     document.querySelector(".locating-status").innerHTML = "无法获取您的定位。";
+    isLocated = false;
+    checkCanInput();
     console.log('定位失败');
 }
 
+$('input[type=text]').bind('input propertychange', function () {
+    checkCanInput();
+    //console.log($(this).val().length + ' characters');
+});
+
+
+function checkCanInput() {
+    if ($('input[type=text]').val().length > 0 && isLocated) {
+        $("button").removeAttr("disabled");
+        $("button").removeClass("disabled");
+    } else {
+        $("button").attr({"disabled": "disabled"});
+        $("button").addClass("disabled");
+    }
+}
 
 //function geoFindMe() {
 
@@ -85,8 +92,8 @@ function onError(data) {
 
 $("#neederBtn").click(function () {
     if ($("#neederTarget").val().length > 0) {
-        if (locations == null) {
-            document.querySelector(".locating-status").innerHTML = "未获取到地理位置,请稍候再试";
+        if (!isLocated) {
+            alert("未获取到地理位置,请稍候再试");
         } else {
             $.ajax({
                 type: 'POST',
@@ -116,8 +123,8 @@ $("#neederBtn").click(function () {
 
 $("#helperBtn").click(function () {
     if ($("#helperTarget").val().length > 0) {
-        if (locations == null) {
-            document.querySelector(".locating-status").innerHTML = "未获取到地理位置,请稍候再试";
+        if (!isLocated) {
+            alert("未获取到地理位置,请稍候再试")
         } else {
             $.ajax({
                 type: 'POST',
@@ -131,7 +138,7 @@ $("#helperBtn").click(function () {
                 dataType: 'json',
                 timeout: 3000,
                 success: function (data) {
-                    if (data == 0) {
+                    if (data === 0) {
                         window.location.href = "./list.php";
                     }
                 },
