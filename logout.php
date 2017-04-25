@@ -24,9 +24,6 @@ setcookie("userid", "", time()-3600);
         </div>
     </div>
 </div>
-<footer>
-    Timu蜗壳工作室
-</footer>
 <script>
     window.localStorage.removeItem("usertype");
     window.localStorage.removeItem("userid");

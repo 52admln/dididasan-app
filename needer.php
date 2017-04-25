@@ -37,9 +37,6 @@ if(!isset($_SESSION['username'])) {
         </div>
     </div>
 </div>
-<footer class="main-footer">
-    Timu蜗壳工作室
-</footer>
 <script src="https://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
 <script src="https://cdn.bootcss.com/axios/0.16.1/axios.min.js"></script>
 <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=8b14f837460ac8da096b0964f8feb168"></script>

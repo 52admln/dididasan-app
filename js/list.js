@@ -104,7 +104,7 @@ function formatDistance(distance) {
     if (distance < 1000) {
         return distance + "米";
     } else if (distance > 1000) {
-        return (Math.round(distance / 100) / 10).toFixed(1) + "公里";
+        return (Math.round(distance / 100) / 10).toPrecision(2) + "公里";
     }
 }
 

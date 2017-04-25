@@ -144,8 +144,8 @@ select {
 }
 
 .btns {
-    position: absolute;
-    bottom: 60px;
+    /*position: absolute;*/
+    /*bottom: 60px;*/
     width: 100%;
     display: flex;
     justify-content: center;
@@ -154,8 +154,8 @@ select {
     text-align: center;
 }
 .btns.userinfo {
-    position: relative;
-    bottom:0;
+    /*position: relative;*/
+    /*bottom:0;*/
     margin-top: 10px;
 }
 .btn {
@@ -288,9 +288,9 @@ a.btn-opacity {
 
 .title a {
     position: absolute;
-    left: 28px;
+    left: 5px;
     top: 0;
-
+    padding: 0 20px;
 }
 
 .title i {
@@ -559,7 +559,7 @@ a.type-change {
 
 /*footer*/
 footer {
-    position: absolute;
+    position: fixed;
     bottom:5px;
     left: 0;
     width:100%;

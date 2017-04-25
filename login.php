@@ -37,9 +37,6 @@ if(isset($_SESSION['username'])) {
         </form>
     </div>
 </div>
-<footer>
-    Timu蜗壳工作室
-</footer>
 <script src="libs/zepto/zepto.min.js"></script>
 <script src="libs/mobileValidate/js/zepto-mvalidate.js"></script>
 <script src="js/login.js"></script>

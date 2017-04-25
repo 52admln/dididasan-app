@@ -29,8 +29,5 @@ if(!isset($_SESSION['username'])) {
         </div>
     </div>
 </div>
-<footer>
-    Timu蜗壳工作室
-</footer>
 </body>
 </html>
