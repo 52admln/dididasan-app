@@ -5,9 +5,9 @@
  */
 function db_connect()
 {
-    $LOCALHOST = '127.0.0.1';
+    $LOCALHOST = 'localhost';
     $USERNAME = 'root';
-    $PASSWORD = '';
+    $PASSWORD = '123456';
     $DATABASE = 'didi_dasan';
     $mysqli = new mysqli($LOCALHOST, $USERNAME, $PASSWORD, $DATABASE);
     // 设置字符集,避免乱码
@@ -19,3 +19,4 @@ function db_connect()
         return $mysqli;
     }
 }
+
